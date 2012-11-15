@@ -1,0 +1,31 @@
+{
+    "name": "ajanssen/filemanager",
+    "description": "ZF2 module for managing files and folder.",
+    "license": "New-BSD-License",
+    "keywords": [
+        "filemanager",
+        "doctrine",
+        "zf2",
+        "zend framework 2",
+        "module"
+    ],
+    "homepage": "https://github.com/ajanssen/filemanager",
+    "authors": [
+        {
+            "name": "Alexander Janssen",
+            "homepage": "http://www.tnajanssen.nl"
+        }
+    ],
+    "require": {
+        "zendframework/zendframework": "dev-master",
+        "doctrine/doctrine-orm-module": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "filemanager": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
