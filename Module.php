@@ -25,7 +25,7 @@ class Module
     {
         return array(
             'factories' => array(
-                'Zend\Authentication\AuthenticationService' => function($serviceManager) {
+                'Zend\Authentication\AuthenticationService' => function ($serviceManager) {
                     return $serviceManager->get('doctrine.authenticationservice.orm_default');
                 }
             )
@@ -34,6 +34,6 @@ class Module
 
     public function getConfig()
     {
-        return array_merge(array_merge(include __DIR__ . '/config/module.config.php',include __DIR__ . '/config/routes.config.php'), include __DIR__ . '/config/services.config.php');
+        return array_merge(array_merge(include __DIR__ . '/config/module.config.php', include __DIR__ . '/config/routes.config.php'), include __DIR__ . '/config/services.config.php');
     }
 }
