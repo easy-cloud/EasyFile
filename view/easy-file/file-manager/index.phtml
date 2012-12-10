@@ -1,0 +1,45 @@
+<?php
+$title = $this->translate('Users');
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<hr/>
+<a class="btn btn-primary" href="<?php echo $this->url('acl/users/add') ?>"><i class="icon-plus icon-white"></i></a>
+<hr/>
+<table class="table datatable table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th><input type="checkbox" value="1" data-selectall="true" /></th>
+            <th><?php echo $this->translate('Thumbnail'); ?></th>
+            <th><?php echo $this->translate('Name'); ?></th>
+            <th><?php echo $this->translate('Type'); ?></th>
+            <th><?php echo $this->translate('Size'); ?></th>
+            <th><?php echo $this->translate('Actions'); ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($this->list['all'] as $item):?>
+            <tr data-type="<?php echo $item['type'] ?>">
+                <td><input type="checkbox" value="1" /></td>
+                <td><img src="<?php echo urldecode($this->url('filemanager/thumbnail', array('width'=>128, 'height' => '128', 'file' => $item['file']))); ?>" alt="<?php echo $item['name'] ?>"/></td>
+                <td><?php echo $item['name'] ?></td>
+                <td><?php echo $item['filetype'] ?></td>
+                <td><?php echo $item['size'] ?></td>
+                <td><div class="btn-group">
+                        <div class="btn dropdown-toggle" data-toggle="dropdown">Actions<span class="caret"></span></div>
+                        <ul class="dropdown-menu">
+                            <a href="<?php echo $this->url('filemanager/download', array('file' => $item['file'])); ?>"><i class="icon-download"></i><?php echo $this->translate('Download'); ?></a>
+                            <a href="<?php echo $this->url('filemanager/download', array('file' => $item['file'])); ?>"><i class="icon-pencil"></i><?php echo $this->translate('Edit'); ?></a>
+                            <a href="<?php echo $this->url('filemanager/download', array('file' => $item['file'])); ?>" class="btn-danger" style="color:#ffffff;"><i class="icon-remove icon-white"></i><?php echo $this->translate('Remove'); ?></a>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php $this->inlineScript()->captureStart(); ?>
+    $(document).on('change', 'input:checkbox[data-selectall="true"]', function(){
+        $('input:checkbox:not([data-selectall="true"])').attr('checked', $(this).is(':checked'));
+    });
+<?php $this->inlineScript()->CaptureEnd(); ?>
