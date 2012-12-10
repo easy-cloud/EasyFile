@@ -1,6 +1,6 @@
 <?php
 
-namespace FileManager;
+namespace filemanager;
 
 use Zend\Mvc\MvcEvent,
     Zend\ModuleManager\Feature\AutoloaderProviderInterface,
@@ -30,7 +30,7 @@ class Module
                 }
             )
         );
-    }    
+    }
 
     public function getConfig()
     {
