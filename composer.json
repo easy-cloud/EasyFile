@@ -1,5 +1,5 @@
 {
-    "name": "ajanssen/filemanager",
+    "name": "easycloud/easyfile",
     "description": "ZF2 module for managing files and folder.",
     "license": "New-BSD-License",
     "keywords": [
@@ -9,7 +9,7 @@
         "zend framework 2",
         "module"
     ],
-    "homepage": "https://github.com/ajanssen/filemanager",
+    "homepage": "https://github.com/Easy-Cloud/EasyFile",
     "authors": [
         {
             "name": "Alexander Janssen",
